@@ -1,0 +1,6 @@
+{% for post_id in posts %}
+  <a href="{{ url_for('show_post', post_id=post_id) }}">
+      Post {{ post_id }}
+  </a>
+  <br>
+{% endfor %}
