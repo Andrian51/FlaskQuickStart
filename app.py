@@ -1,9 +1,9 @@
-from flask import Flask, render_template, url_for, request, redirect, session
+from flask import Flask, render_template, url_for, request, redirect, session, flash
 
 app = Flask(__name__)
 app.secret_key = 'superfcfjhgfjgsecret'
 
-users = {
+user_database = {
     "Andrian": "123456",
     "Bogdan": "qwerty"
 }
@@ -49,8 +49,9 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
-        if username in users and users[username] == password:
+        if username in user_database and user_database[username] == password:
             session['username'] = username
+            flash(f'Вітаємо,{username}! ви успішно авторизувалися!')
 
             return redirect(url_for('user', username=username))
 
@@ -67,6 +68,18 @@ def register():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+
+@app.route('/logout')
+def logout():
+    session.pop('username', None)
+
+    return redirect(url_for('home'))
+
+
+@app.route('/profile')
+def profile():
+    return render_template('user.html')
 
 
 if __name__ == "__main__":
