@@ -5,7 +5,7 @@ app.secret_key = 'superfcfjhgfjgsecret'
 
 user_database = {
     "Andrian": "123456",
-    "Bogdan": "qwerty"
+    "Bogdan": "123456"
 }
 
 
@@ -51,7 +51,7 @@ def login():
 
         if username in user_database and user_database[username] == password:
             session['username'] = username
-            flash(f'Вітаємо,{username}! ви успішно авторизувалися!')
+            flash(f'Вітаємо, {username}! ви успішно авторизувалися!')
 
             return redirect(url_for('user', username=username))
 

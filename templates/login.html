@@ -1,13 +1,26 @@
 {% extends "base.html" %}
+
+{% block title %}Авторизація{{ super() }} {% endblock %}
+
 {% block content %}
-<h1>Login</h1>
-<form method="post">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
+<main class="form-login w-25 m-auto">
+    <img class="mb-4" src="{{ url_for('static', filename='assets/images/bootstrap-logo.svg') }}" alt="Bootstrap Logo"
+         width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal">Please log in</h1>
+    <form method="POST" action="{{ url_for('login') }}">
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
+        <div class="form-floating">
+            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+            <label for="username">Username</label>
+        </div>
 
-    <button type="submit">Login</button>
-</form>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            <label for="password">Password</label>
+        </div>
+        <br>
+        <button class="btn btn-primary w-25 py-2" type="submit">Log in</button>
+        <p class="mt-5 mb-3 text-body-secondary">&copy; 2023–2027</p>
+    </form>
+</main>
 {% endblock %}
