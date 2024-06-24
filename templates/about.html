@@ -1,5 +1,28 @@
 {% extends "base.html" %}
+
+{% block title %}Інформація про нас{{ super() }}{% endblock %}
+
 {% block content %}
-<h1>About</h1>
-<p>Інформація про компанію</p>
+<div class="p-5 mb-4 bg-body-tertiary rounded-3">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">About</h1>
+        <p class="col-md-8 fs-4">
+            Це проста й порожня сторінка, де має бути текст про нас, нашу компанію або те, що ми придумали. Зараз я
+            заповнив цю сторінку хоча б якоюсь інформацією, щоб заповнити пусте місце.
+        </p>
+        <br>
+        <a class="btn btn-primary btn-lg" href="https://www.facebook.com" target="_blank" role="button">
+            <i class="fab fa-facebook-f"></i> Facebook
+        </a>
+        <a class="btn btn-primary btn-lg" href="https://www.twitter.com" target="_blank" role="button">
+            <i class="fab fa-twitter"></i> Twitter
+        </a>
+        <a class="btn btn-primary btn-lg" href="https://www.instagram.com" target="_blank" role="button">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a class="btn btn-primary btn-lg" href="https://www.linkedin.com" target="_blank" role="button">
+            <i class="fab fa-linkedin-in"></i> LinkedIn
+        </a>
+    </div>
+</div>
 {% endblock %}
